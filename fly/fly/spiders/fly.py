@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
+import sys
+import os
+import inspect
+
+
+currentdir = os.path.dirname(os.path.realpath(inspect.getfile(lambda: None)))
+parentdir = os.path.dirname(os.path.dirname(os.path.dirname(currentdir)))
+sys.path.append(parentdir)
+
 import scrapy
 from scrapy_selenium import SeleniumRequest
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from helpers.step import StepHelper
 
 
